@@ -2,6 +2,8 @@ import React from "react";
 import axios from "axios";
 import SingleProduct from "./SingleProduct";
 import { Grid } from "@mui/material";
+import Fab from "@mui/material/Fab";
+import AddIcon from "@mui/icons-material/Add";
 const Products = () => {
   const [products, setProducts] = React.useState([]);
   const getData = () => {
@@ -20,6 +22,9 @@ const Products = () => {
   return (
     <div>
       <h1>Products</h1>
+      <Fab color="primary" aria-label="add">
+        <AddIcon to="/products/new" />
+      </Fab>
       <hr />
       {products.length === 0 ? (
         <p>Loading!</p>

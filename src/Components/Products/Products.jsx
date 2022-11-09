@@ -4,6 +4,7 @@ import SingleProduct from "./SingleProduct";
 import { Grid } from "@mui/material";
 import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
+import { useNavigate } from "react-router-dom";
 const Products = (props) => {
   const [products, setProducts] = React.useState([]);
   const getData = () => {
@@ -18,17 +19,12 @@ const Products = (props) => {
       });
   };
   React.useEffect(getData, []);
-  const addNewProduct = () => {
-    console.log("check!");
-    console.log(props);
-    props.history.push("/Products/new");
-    console.log("check");
-  };
+  const navigate = useNavigate();
   return (
     <div>
       <h1>Products</h1>
       <Fab color="primary" aria-label="add">
-        <AddIcon onClick={addNewProduct} />
+        <AddIcon onClick={() => navigate("/Products/new")} />
       </Fab>
       <hr />
       {products.length === 0 ? (

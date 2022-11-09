@@ -3,7 +3,6 @@ import { Grid, Typography } from "@mui/material";
 const SingleProduct = ({ product }) => {
   return (
     <Grid item xs={12}>
-      {console.log("setProducts:" + product)}
       <Typography variant="h3">Id:{product.id}</Typography>
       <Typography variant="h4">Title:{product.title}</Typography>
       <h2>Price:{product.price}</h2>

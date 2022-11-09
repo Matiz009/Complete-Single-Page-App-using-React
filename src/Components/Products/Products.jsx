@@ -4,7 +4,7 @@ import SingleProduct from "./SingleProduct";
 import { Grid } from "@mui/material";
 import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
-const Products = () => {
+const Products = (props) => {
   const [products, setProducts] = React.useState([]);
   const getData = () => {
     axios
@@ -18,12 +18,17 @@ const Products = () => {
       });
   };
   React.useEffect(getData, []);
-  console.log("Inside Product component");
+  const addNewProduct = () => {
+    console.log("check!");
+    console.log(props);
+    props.history.push("/Products/new");
+    console.log("check");
+  };
   return (
     <div>
       <h1>Products</h1>
       <Fab color="primary" aria-label="add">
-        <AddIcon to="/products/new" />
+        <AddIcon onClick={addNewProduct} />
       </Fab>
       <hr />
       {products.length === 0 ? (
